@@ -1,0 +1,34 @@
+{
+  "name": "empathai-core",
+  "version": "0.1.1",
+  "description": "Progressive, multimodal emotion detection SDK for real-time apps",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "emotion",
+    "ai",
+    "sdk",
+    "empathai",
+    "user behavior",
+    "multimodal"
+  ],
+  "author": "Mrityunjoy",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/empathai"
+  },
+  "dependencies": {
+    "react": "^19.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.8",
+    "typescript": "^5.4.5"
+  }
+}
