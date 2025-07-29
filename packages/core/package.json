@@ -6,11 +6,15 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "CONTRIBUTING.md"
   ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "test": "echo \"No tests yet, coming soon!\" && exit 0"
   },
   "keywords": [
     "emotion",
@@ -32,6 +36,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.1.8",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "eslint": "^8.0.0"
   }
 }
