@@ -1,6 +1,6 @@
 {
   "name": "empathai-core",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "description": "Progressive, multimodal emotion detection SDK for real-time apps",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
