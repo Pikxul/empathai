@@ -1,42 +1,49 @@
 {
   "name": "empathai-core",
-  "version": "0.1.7",
-  "description": "Progressive, multimodal emotion detection SDK for real-time apps",
+  "version": "0.1.8",
+  "description": "Non-intrusive behavior-based emotion detection SDK (keyboard & mouse) — EmpathAI core.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
     "README.md",
-    "CONTRIBUTING.md"
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
+    "test": "vitest",
     "check-types": "tsc --noEmit",
-    "lint": "eslint ./src --ext .ts,.tsx",
-    "test": "echo \"No tests yet, coming soon!\" && exit 0"
+    "lint": "eslint ./src --ext .ts,.tsx"
   },
   "keywords": [
     "emotion",
     "ai",
     "sdk",
     "empathai",
-    "user behavior",
+    "user-behavior",
     "multimodal"
   ],
-  "author": "Mrityunjoy",
+  "author": "Mrityunjoy (Piklu)",
   "license": "MIT",
-  "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/pikxul/empathai"
+    "url": "https://github.com/Pikxul/empathai"
   },
-  "dependencies": {
-    "react": "^19.1.1"
+  "bugs": {
+    "url": "https://github.com/Pikxul/empathai/issues"
+  },
+  "homepage": "https://github.com/Pikxul/empathai",
+  "peerDependencies": {
+    "react": "^17 || ^18 || ^19"
   },
   "devDependencies": {
-    "@types/react": "^19.1.8",
     "typescript": "^5.4.5",
-    "eslint": "^8.0.0"
+    "vitest": "^0.34.0",
+    "eslint": "^8.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
