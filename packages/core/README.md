@@ -13,15 +13,9 @@
 `empathai-core` analyzes user interaction signals (mouse movement, typing rhythm, clicks) and returns inferred emotional states (e.g. `focused`, `frustrated`, `bored`, `neutral`) together with a basic confidence score.  
 It is intentionally **privacy-first** — no camera/mic required.
 
-> **EmpathAI Core** is a privacy-first, non-intrusive **emotion signal engine** for web applications.  
-It detects user emotional states in real time using **behavioral signals** such as mouse movement and typing patterns.
-
-⚠️ This package is **NOT a recommendation engine** and **NOT an ML model**.  
-It is a **foundational signal layer** designed to be consumed by higher-level systems (AI, analytics, UX, decision engines).
-
 ---
 
-## ✨ What EmpathAI Core Does
+## What EmpathAI Core Does
 
 - Captures **non-intrusive user behavior signals**
 - Infers **basic emotional states** (deterministic v1)
@@ -32,19 +26,120 @@ It is a **foundational signal layer** designed to be consumed by higher-level sy
 
 ---
 
-## 🚫 What EmpathAI Core Does NOT Do
+## What EmpathAI Core Does NOT Do
 
-- ❌ No camera access  
-- ❌ No microphone access  
-- ❌ No personal data collection  
-- ❌ No emotion prediction via ML (yet)  
-- ❌ No recommendations or decisions  
+- No camera access  
+- No microphone access  
+- No personal data collection  
 
 EmpathAI Core provides **signals**, not decisions.
 
 ---
 
-## 📦 Installation
+## React (Recommended for React Apps)
+
+import { useEmpathAI } from 'empathai-core/hooks';
+
+function App() {
+  const { emotion } = useEmpathAI({
+    enableMouseTracking: true,
+    enableKeyboardTracking: true,
+  });
+
+  return (
+    <div>
+      <h2>Current emotion</h2>
+      <p>{emotion.type}</p>
+      <p>Confidence: {emotion.confidence}</p>
+    </div>
+  );
+}
+
+export default App;
+
+---
+
+## JavaScript (Vanilla JS)
+
+import { createEmpathAI } from 'empathai-core';
+
+const empathAI = createEmpathAI({
+  onEmotionDetected: (emotion) => {
+    console.log('Emotion detected:', emotion);
+  }
+});
+
+empathAI.init();
+
+// Optional cleanup
+window.addEventListener('beforeunload', () => {
+  empathAI.destroy();
+});
+
+---
+
+## Java Backend with Web Frontend
+
+Frontend (JavaScript)
+import { createEmpathAI } from 'empathai-core';
+
+const empathAI = createEmpathAI({
+  onEmotionDetected: (emotion) => {
+    fetch('/api/emotion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(emotion),
+    });
+  }
+});
+
+empathAI.init();
+
+**Backend (Spring Boot example)**
+@RestController
+@RequestMapping("/api")
+public class EmotionController {
+
+    @PostMapping("/emotion")
+    public ResponseEntity<Void> receiveEmotion(@RequestBody EmotionPayload payload) {
+        // Store, analyze, or react to emotion signal
+        return ResponseEntity.ok().build();
+    }
+}
+
+---
+
+## Python Backend with Web Frontend
+
+Frontend (JavaScript)
+import { createEmpathAI } from 'empathai-core';
+
+const empathAI = createEmpathAI({
+  onEmotionDetected: (emotion) => {
+    fetch('/emotion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(emotion),
+    });
+  }
+});
+
+empathAI.init();
+
+**Backend (Flask example)**
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route("/emotion", methods=["POST"])
+def receive_emotion():
+    data = request.json
+    # Process emotion signal
+    return "", 200
+
+---
+
+## Installation
 
 ```bash
 npm install empathai-core
