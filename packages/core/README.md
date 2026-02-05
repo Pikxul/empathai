@@ -36,8 +36,19 @@ EmpathAI Core provides **signals**, not decisions.
 
 ---
 
-## React (Recommended for React Apps)
+## Installation
+```bash
+npm install empathai-core
+# or
+pnpm add empathai-core
+```
 
+---
+
+## Usage Examples
+
+### React (Recommended for React Apps)
+```jsx
 import { useEmpathAI } from 'empathai-core/hooks';
 
 function App() {
@@ -56,11 +67,12 @@ function App() {
 }
 
 export default App;
+```
 
 ---
 
-## JavaScript (Vanilla JS)
-
+### JavaScript (Vanilla JS)
+```javascript
 import { createEmpathAI } from 'empathai-core';
 
 const empathAI = createEmpathAI({
@@ -75,12 +87,14 @@ empathAI.init();
 window.addEventListener('beforeunload', () => {
   empathAI.destroy();
 });
+```
 
 ---
 
-## Java Backend with Web Frontend
+### Java Backend with Web Frontend
 
-Frontend (JavaScript)
+**Frontend (JavaScript)**
+```javascript
 import { createEmpathAI } from 'empathai-core';
 
 const empathAI = createEmpathAI({
@@ -94,8 +108,10 @@ const empathAI = createEmpathAI({
 });
 
 empathAI.init();
+```
 
 **Backend (Spring Boot example)**
+```java
 @RestController
 @RequestMapping("/api")
 public class EmotionController {
@@ -106,12 +122,14 @@ public class EmotionController {
         return ResponseEntity.ok().build();
     }
 }
+```
 
 ---
 
-## Python Backend with Web Frontend
+### Python Backend with Web Frontend
 
-Frontend (JavaScript)
+**Frontend (JavaScript)**
+```javascript
 import { createEmpathAI } from 'empathai-core';
 
 const empathAI = createEmpathAI({
@@ -125,8 +143,10 @@ const empathAI = createEmpathAI({
 });
 
 empathAI.init();
+```
 
 **Backend (Flask example)**
+```python
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -136,12 +156,10 @@ def receive_emotion():
     data = request.json
     # Process emotion signal
     return "", 200
+```
 
 ---
 
-## Installation
+## License
 
-```bash
-npm install empathai-core
-# or
-pnpm add empathai-core
+MIT
