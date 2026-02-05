@@ -2,23 +2,24 @@
 node_modules/
 packages/**/node_modules/
 
-# build output
-dist/
-packages/**/dist/
 
 # logs
 npm-debug.log*
 pnpm-debug.log*
 
-# editor
-.vscode/
+
+#os / editor 
 .DS_Store
+.vscode/
+
+
+# build cache
+.turbo
+
+
+# tarballs
+*.tgz
+
 
 # lockfiles not used
 package-lock.json
-
-
-node_modules/
-packages/*/node_modules/
-dist/
-*.tgz
