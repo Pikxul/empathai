@@ -12,8 +12,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
-    "types": ["react"]
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules", "**/*.test.ts", "**/__tests__"]
