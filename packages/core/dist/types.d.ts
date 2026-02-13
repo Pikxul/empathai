@@ -9,6 +9,11 @@ export interface EmpathAIOptions {
     enableKeyboardTracking?: boolean;
     enableMicTracking?: boolean;
     enableCameraTracking?: boolean;
+    signalWindowMs?: number;
+    analysisIntervalMs?: number;
+    mouseThrottleMs?: number;
+    confidenceThreshold?: number;
+    debugMode?: boolean;
     onInit?: () => void;
     onEmotionDetected?: (emotion: EmotionData) => void;
 }

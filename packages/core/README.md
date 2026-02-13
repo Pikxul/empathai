@@ -47,38 +47,20 @@ pnpm add empathai-core
 
 ## Usage Examples
 
-### React (Recommended for React Apps)
-```jsx
-import { useEmpathAI } from 'empathai-core/hooks';
-
-function App() {
-  const { emotion } = useEmpathAI({
-    enableMouseTracking: true,
-    enableKeyboardTracking: true,
-  });
-
-  return (
-    <div>
-      <h2>Current emotion</h2>
-      <p>{emotion.type}</p>
-      <p>Confidence: {emotion.confidence}</p>
-    </div>
-  );
-}
-
-export default App;
-```
-
----
-
-### JavaScript (Vanilla JS)
+### JavaScript (Framework-Agnostic)
 ```javascript
 import { createEmpathAI } from 'empathai-core';
 
 const empathAI = createEmpathAI({
   onEmotionDetected: (emotion) => {
     console.log('Emotion detected:', emotion);
-  }
+  },
+  // Optional configuration
+  signalWindowMs: 3000,      // 3 second window
+  analysisIntervalMs: 1000,  // Analyze every second
+  mouseThrottleMs: 50,       // Throttle mouse events
+  confidenceThreshold: 0.3,  // Minimum confidence
+  debugMode: false,          // Enable for debugging
 });
 
 empathAI.init();

@@ -1,4 +1,5 @@
-import { EmotionData, EmpathAIOptions } from './types';
+import { EmotionType, EmotionData, EmpathAIOptions } from './types';
+export type { EmotionType, EmotionData, EmpathAIOptions };
 /**
  * Core EmpathAI engine
  * - Behavior-signal driven
@@ -13,8 +14,12 @@ export declare class EmpathAI {
     private emotionListeners;
     private mouseSignals;
     private keySignals;
+    private lastMouseEventTime;
     private readonly SIGNAL_WINDOW_MS;
     private readonly ANALYSIS_INTERVAL_MS;
+    private readonly MOUSE_THROTTLE_MS;
+    private readonly CONFIDENCE_THRESHOLD;
+    private readonly DEBUG_MODE;
     private analysisTimer?;
     private initialized;
     constructor(options?: EmpathAIOptions);
@@ -27,7 +32,7 @@ export declare class EmpathAI {
      */
     destroy(): void;
     /**
-     * Mouse movement tracking
+     * Mouse movement tracking with throttling
      */
     private handleMouseMove;
     /**
@@ -36,11 +41,15 @@ export declare class EmpathAI {
     private handleKeyDown;
     /**
      * Core emotion inference logic
-     * (deterministic, explainable, extendable)
+     * Implements all 7 emotion types with nuanced detection
      */
     private analyzeSignals;
     /**
-     * Emit emotion change event
+     * Calculate mouse movement variance to detect erratic vs smooth patterns
+     */
+    private calculateMouseVariance;
+    /**
+     * Emit emotion change event (only if different from current)
      */
     private emitEmotion;
     /**
@@ -52,6 +61,15 @@ export declare class EmpathAI {
      * Get current emotion snapshot
      */
     getCurrentEmotion(): EmotionData;
+    /**
+     * Get performance metrics (for monitoring)
+     */
+    getPerformanceMetrics(): {
+        mouseSignalCount: number;
+        keySignalCount: number;
+        listenerCount: number;
+        isInitialized: boolean;
+    };
 }
 /**
  * Factory method (recommended usage)

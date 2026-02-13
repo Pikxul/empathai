@@ -1,6 +1,6 @@
 {
   "name": "empathai-core",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Non-intrusive behavior-based emotion detection SDK (keyboard & mouse) — EmpathAI core.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,9 +34,6 @@
     "url": "https://github.com/Pikxul/empathai/issues"
   },
   "homepage": "https://github.com/Pikxul/empathai",
-  "peerDependencies": {
-    "react": "^17 || ^18 || ^19"
-  },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "eslint": "^8.0.0",
