@@ -6,7 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "emotion-detection",
+    "behavior-analysis",
+    "mouse-tracking",
+    "sentiment-analysis",
+    "user-experience",
+    "ux-research",
+    "affective-computing",
+    "privacy-first",
+    "no-camera",
+    "empathai",
+    "react-emotion",
+    "vue-emotion",
+    "angular-emotion"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.13.1"

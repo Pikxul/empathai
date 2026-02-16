@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmpathAI Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; padding: 2rem; max-width: 800px; margin: 0 auto; background: #f0f2f5; }
+    .card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+    h1 { color: #333; }
+    #emotion-display { font-size: 3rem; margin: 1rem 0; font-weight: bold; color: #666; transition: color 0.3s; }
+    #confidence { font-size: 1.2rem; color: #888; }
+    .status { margin-top: 2rem; padding: 1rem; background: #e9ecef; border-radius: 4px; font-family: monospace; text-align: left; }
+    
+    .focused { color: #2ecc71 !important; }
+    .frustrated { color: #e74c3c !important; }
+    .bored { color: #95a5a6 !important; }
+    .happy { color: #f1c40f !important; }
+    .neutral { color: #34495e !important; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>EmpathAI Live Demo</h1>
+    <p>Move your mouse or type anywhere on the page.</p>
+    
+    <div id="emotion-display">neutral</div>
+    <div id="confidence">Confidence: 0%</div>
+    
+    <div class="status">
+      <div>Mouse Speed: <span id="mouse-speed">0</span> px/ms</div>
+      <div>Typing Speed: <span id="typing-speed">0</span> chars/min</div>
+      <div>Status: <span id="status">Active</span></div>
+    </div>
+  </div>
+
+  <!-- In a real CodeSandbox, you would import from 'empathai-core' -->
+  <script type="module">
+    // Mock implementation for demo visualization
+    // In production: import { createEmpathAI } from 'empathai-core';
+    
+    const display = document.getElementById('emotion-display');
+    const confidenceEl = document.getElementById('confidence');
+    const mouseSpeedEl = document.getElementById('mouse-speed');
+    
+    let lastX = 0, lastY = 0, lastTime = Date.now();
+    let speed = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      const now = Date.now();
+      const dt = now - lastTime;
+      if (dt > 50) {
+        const dx = e.clientX - lastX;
+        const dy = e.clientY - lastY;
+        speed = Math.sqrt(dx*dx + dy*dy) / dt;
+        mouseSpeedEl.textContent = speed.toFixed(2);
+        
+        lastX = e.clientX;
+        lastY = e.clientY;
+        lastTime = now;
+        
+        // Simple simulation logic for demo
+        if (speed > 2) {
+          updateEmotion('frustrated', 0.85);
+        } else if (speed > 0.5) {
+          updateEmotion('focused', 0.7);
+        } else {
+          updateEmotion('neutral', 0.5);
+        }
+      }
+    });
+
+    function updateEmotion(type, confidence) {
+      display.textContent = type;
+      display.className = type;
+      confidenceEl.textContent = `Confidence: ${(confidence * 100).toFixed(0)}%`;
+    }
+
+    // Idle detection
+    let idleTimer;
+    document.addEventListener('mousemove', resetIdle);
+    document.addEventListener('keydown', resetIdle);
+
+    function resetIdle() {
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        updateEmotion('bored', 0.6);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

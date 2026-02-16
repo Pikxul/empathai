@@ -1,0 +1,42 @@
+name: Bug Report
+description: Create a report to help us improve EmpathAI
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: version
+    attributes:
+      label: EmpathAI Version
+      description: Which version of empathai-core are you using? e.g. 0.3.0
+      placeholder: 0.3.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: A clear and concise description of what the bug is.
+      placeholder: I expected X to happen, but Y happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction Steps
+      description: Steps to reproduce the behavior.
+      placeholder: |
+        1. Initialize EmpathAI with config X
+        2. Move mouse rapidly
+        3. Observe console error
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, specific framework version etc.
+      placeholder: Chrome 120, Windows 11, React 18

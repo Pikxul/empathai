@@ -1,0 +1,13 @@
+{
+    "name": "empathai-demo",
+    "version": "1.0.0",
+    "description": "Simple demo for EmpathAI",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html"
+    },
+    "dependencies": {
+        "empathai-core": "latest",
+        "parcel": "^2.0.0"
+    }
+}
