@@ -2,7 +2,7 @@
 
 <div align="center">
   <h3>🧠 Add Emotional Intelligence to Your App with 3 Lines of Code</h3>
-  <p>Non-intrusive, privacy-first emotion detection SDK using behavioral patterns (mouse & keyboard).</p>
+  <p>Non-intrusive, privacy-first emotion detection SDK using behavioral patterns.</p>
 
   [![NPM Version](https://img.shields.io/npm/v/empathai-core?style=flat-square&color=blue)](https://www.npmjs.com/package/empathai-core)
   [![Build Status](https://img.shields.io/github/actions/workflow/status/Pikxul/empathai/ci.yml?style=flat-square)](https://github.com/Pikxul/empathai/actions)
@@ -69,3 +69,4 @@ We welcome contributions! Please check out our [Contributing Guide](CONTRIBUTING
 ## 📄 License
 
 MIT © [Mrityunjoy (Piklu)](https://github.com/Pikxul)
+
